@@ -58,6 +58,7 @@ class Paper:
         first_page_text = first_page_text.replace(abstract_text, "")
         return first_page_text
         
+
     def get_image_path(self, image_path=''):
         """
         将PDF中的第一张图保存到image.png里面，存到本地目录，返回文件名称，供gitee读取
@@ -457,7 +458,9 @@ class Reader:
             text += 'Title:' + paper.title
             text += 'Url:' + paper.url
             text += 'Abstract:' + paper.abs
+            print('-----paper.abs:---' ,text,'-----paper.abs:---')
             text += 'Paper_info:' + paper.section_text_dict['paper_info']
+            print('-----text:---', text, '-----text:---')
             # intro
             text += list(paper.section_text_dict.values())[0]
             chat_summary_text = ""
@@ -801,7 +804,7 @@ def chat_paper_main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pdf_path", type=str, default=r'demo.pdf', help="if none, the bot will download from arxiv with query")
+    parser.add_argument("--pdf_path", type=str, default=r'D:\Postman\Git\Repo\ChatPaper\data\Adaptive_Cross-Modal_Transferable_Adversarial_Attacks_From_Images_to_Videos.pdf', help="if none, the bot will download from arxiv with query")
     # parser.add_argument("--pdf_path", type=str, default=r'C:\Users\Administrator\Desktop\DHER\RHER_Reset\ChatPaper', help="if none, the bot will download from arxiv with query")
     # parser.add_argument("--pdf_path", type=str, default='', help="if none, the bot will download from arxiv with query")
     parser.add_argument("--query", type=str, default='all: ChatGPT robot',
@@ -814,7 +817,7 @@ if __name__ == '__main__':
     # arxiv.SortCriterion.Relevance
     parser.add_argument("--sort", type=str, default="Relevance", help="another is LastUpdatedDate")
     parser.add_argument("--save_image", default=False,
-                        help="save image? It takes a minute or two to save a picture! But pretty")
+                        help="save ima ge? It takes a minute or two to save a picture! But pretty")
     parser.add_argument("--file_format", type=str, default='md', help="导出的文件格式，如果存图片的话，最好是md，如果不是的话，txt的不会乱")
     parser.add_argument("--language", type=str, default='zh', help="The other output lauguage is English, is en")    
     import time

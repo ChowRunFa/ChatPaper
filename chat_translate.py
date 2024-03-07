@@ -225,7 +225,7 @@ def main(root_path, pdf_path, base_url, key, task="翻译"):
 
 if __name__ == "__main__":
     root_path = r'./'
-    pdf_path = r'./demo.pdf'
+    pdf_path = r'demo1.pdf'
     base_url = 'https://api.openai.com/v1'
     key = "sk-xxx"
     task = "翻译"
